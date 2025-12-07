@@ -23,7 +23,7 @@ class MailListFormRequest extends FormRequest
     {
         return [
             'email' => 'required|email|max:255',
-            'full_name' => 'required|string|max:255',
+            'full_name' => 'nullable|string|max:255',
             'content' => 'nullable|string|max:1000',
         ];
     }

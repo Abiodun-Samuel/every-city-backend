@@ -47,4 +47,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public static function isEmailAllowed(string $email): bool
+    {
+        $allowedEmails = config('admin.allowed_emails');
+        return in_array($email, $allowedEmails);
+    }
 }

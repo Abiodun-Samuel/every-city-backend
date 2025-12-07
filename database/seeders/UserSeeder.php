@@ -33,15 +33,14 @@ class UserSeeder extends Seeder
             ]
         );
         $admin->assignRole('admin');
-
-        // Member
-        $member = User::firstOrCreate(
-            ['email' => 'member@everycity.org'],
-            [
-                'name' => 'John Member',
-                'password' => Hash::make('password'),
-            ]
-        );
-        $member->assignRole('member');
+        // // Member
+        // $member = User::firstOrCreate(
+        //     ['email' => 'member@everycity.org'],
+        //     [
+        //         'name' => 'John Member',
+        //         'password' => Hash::make('password'),
+        //     ]
+        // );
+        // $member->assignRole('member');
     }
 }
