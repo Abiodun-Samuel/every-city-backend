@@ -12,6 +12,7 @@ Route::post('/forms/contact', [FormController::class, 'submitContact']);
 Route::post('/forms/prayer', [FormController::class, 'submitPrayer']);
 Route::post('/forms/bhop-application', [FormController::class, 'submitBhopApplication']);
 Route::post('/forms/mail-list', [FormController::class, 'submitMailList']);
+Route::get('events', [EventController::class, 'index']);
 Route::get('events/{event}', [EventController::class, 'show']);
 
 Route::middleware(['auth:sanctum'])->group(function () {

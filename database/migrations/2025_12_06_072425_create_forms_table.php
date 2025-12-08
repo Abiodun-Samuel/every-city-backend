@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('forms', function (Blueprint $table) {
             $table->id();
             $table->string('type'); // contact, prayer, bhop_application, mail_list
-            $table->string('full_name');
+            $table->string('full_name')->nullable();
             $table->string('email')->nullable();
             $table->string('phone_number')->nullable();
             $table->string('subject')->nullable();
