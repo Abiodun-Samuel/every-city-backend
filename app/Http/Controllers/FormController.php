@@ -99,11 +99,17 @@ class FormController extends Controller
 
         $forms = $query->latest()->get();
 
-        return response()->json($forms);
+        return response()->json([
+            'message' => 'Successfully fetched forms',
+            'data' => $forms
+        ], 200);
     }
 
     public function show(Form $form)
     {
-        return response()->json($form);
+        return response()->json([
+            'message' => 'Successfully fetched forms',
+            'data' => $form
+        ], 200);
     }
 }

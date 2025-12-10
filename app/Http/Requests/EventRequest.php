@@ -36,6 +36,7 @@ class EventRequest extends FormRequest
             'ends_at' => 'required|date|after_or_equal:starts_at',
 
             'event_type' => 'nullable|string|max:100',
+            'image' => 'nullable|string',
         ];
     }
 }

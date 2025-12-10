@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('email');
             $table->string('phone');
 
+            $table->string('image')->nullable();
+
             // tickets
             $table->integer('max_tickets')->default(0);
 

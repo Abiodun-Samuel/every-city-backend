@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Event extends Model
 {
@@ -14,6 +15,8 @@ class Event extends Model
         'last_name',
         'email',
         'phone',
+
+        'image',
 
         'max_tickets',
 
@@ -29,4 +32,20 @@ class Event extends Model
         'ends_at'   => 'datetime',
         'max_tickets' => 'integer',
     ];
+
+    public function registrations(): HasMany
+    {
+        return $this->hasMany(Registration::class);
+    }
+
+    public function getAvailableTicketsAttribute(): int
+    {
+        $registered = $this->registrations()->sum('number_of_tickets');
+        return max(0, $this->max_tickets - $registered);
+    }
+
+    public function hasAvailableTickets(int $requestedTickets): bool
+    {
+        return $this->available_tickets >= $requestedTickets;
+    }
 }
