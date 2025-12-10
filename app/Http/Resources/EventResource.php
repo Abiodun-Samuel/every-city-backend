@@ -31,13 +31,16 @@ class EventResource extends JsonResource
                 'registered_tickets' => $this->registrations()->sum('number_of_tickets'),
             ],
 
-            'starts_at'   => $this->starts_at,
-            'ends_at'     => $this->ends_at,
+            'location'   => $this->location,
+
+            'starts_at' => $this->starts_at->toDateTimeString(),
+            'ends_at' => $this->ends_at->toDateTimeString(),
+
             'status'      => $this->status,
             'event_type'  => $this->event_type,
 
-            'created_at'  => $this->created_at,
-            'updated_at'  => $this->updated_at,
+            'created_at'  => $this->created_at->toDateTimeString(),
+            'updated_at'  => $this->updated_at->toDateTimeString(),
         ];
     }
 }

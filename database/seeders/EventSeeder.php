@@ -34,6 +34,7 @@ class EventSeeder extends Seeder
                 'description'  => "A future gathering inspired by EveryCity's mission.",
                 'first_name'   => fake()->firstName(),
                 'last_name'    => fake()->lastName(),
+                'location'    => fake()->lastName(),
                 'email'        => fake()->unique()->safeEmail(),
                 'phone'        => fake()->phoneNumber(),
                 'max_tickets'  => fake()->numberBetween(50, 300),

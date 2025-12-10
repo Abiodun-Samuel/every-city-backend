@@ -24,11 +24,12 @@ class EventRequest extends FormRequest
         return [
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
+            'location' => 'nullable|string',
 
-            'first_name' => 'required|string|max:100',
-            'last_name' => 'required|string|max:100',
-            'email' => 'required|email',
-            'phone' => 'required|string|max:20',
+            'first_name' => 'nullable|string|max:100',
+            'last_name' => 'nullable|string|max:100',
+            'email' => 'nullable|email',
+            'phone' => 'nullable|string|max:20',
 
             'max_tickets' => 'required|integer|min:0',
 
@@ -36,7 +37,6 @@ class EventRequest extends FormRequest
             'ends_at' => 'required|date|after_or_equal:starts_at',
 
             'event_type' => 'nullable|string|max:100',
-            'image' => 'nullable|string',
         ];
     }
 }

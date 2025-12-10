@@ -128,6 +128,7 @@ class DashboardController extends Controller
                     'event_type' => $event->event_type,
                     'starts_at' => $event->starts_at->toDateTimeString(),
                     'ends_at' => $event->ends_at->toDateTimeString(),
+                    'location' => $event->location,
                     'max_tickets' => $event->max_tickets,
                     'tickets_sold' => $event->registrations->sum('number_of_tickets'),
                     'available_tickets' => $event->available_tickets,

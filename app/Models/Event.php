@@ -23,6 +23,8 @@ class Event extends Model
         'starts_at',
         'ends_at',
 
+        'location',
+
         'status',
         'event_type',
     ];
