@@ -18,19 +18,20 @@ return new class extends Migration
             $table->string('title');
             $table->longText('description')->nullable();
 
+            // organizer info (From EveryCity: first name, last name, email, phone)
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
-
+            $table->string('image')->nullable();
             $table->string('location')->nullable();
 
-            $table->string('image')->nullable();
-
+            // tickets
             $table->integer('max_tickets')->default(0);
 
-            $table->date('date')->nullable();
-            $table->time('time')->nullable();
+            // event timing
+            $table->dateTime('starts_at');
+            $table->dateTime('ends_at')->nullable();
 
             // status (current / past / upcoming)
             $table->enum('status', ['current', 'upcoming', 'past'])->default('upcoming');
