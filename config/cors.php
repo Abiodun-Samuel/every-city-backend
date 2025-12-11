@@ -6,7 +6,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => [env('FRONTEND_URL'), 'http://localhost:5173',],
+    'allowed_origins' => [env('FRONTEND_URL'), 'https://every-city-frontend.vercel.app', 'https://www.every-city-frontend.vercel.app', 'http://localhost:5173',],
 
     'allowed_origins_patterns' => [],
 
