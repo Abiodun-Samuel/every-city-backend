@@ -45,7 +45,7 @@ class EventController extends Controller
         $validated = $request->validated();
 
         if (!empty($validated['image'])) {
-            $validated['image'] = $this->handleImageUpload($validated['image'], 'everycity');
+            $validated['image'] = $this->uploadService->upload($validated['image'], 'everycity');
         }
 
         $event = Event::create($validated);
@@ -66,7 +66,15 @@ class EventController extends Controller
 
     public function update(EventRequest $request, Event $event)
     {
-        $event->update($request->validated());
+        $validated = $request->validated();
+
+        if (!empty($validated['image'])) {
+            if ($event->image !== null) {
+                $this->uploadService->delete($event->image);
+            }
+            $validated['image'] = $this->uploadService->upload($validated['image'], 'everycity');
+        }
+        $event->update($validated);
 
         return response()->json([
             'status' => 'success',
@@ -82,10 +90,5 @@ class EventController extends Controller
             'status' => 'success',
             'message' => 'Event deleted successfully'
         ]);
-    }
-
-    protected function handleImageUpload($imageFile, string $folder): string
-    {
-        return $this->uploadService->upload($imageFile, $folder);
     }
 }

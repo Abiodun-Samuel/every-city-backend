@@ -26,6 +26,8 @@ class EventRequest extends FormRequest
             'description' => 'nullable|string',
             'location' => 'nullable|string',
 
+            'image' => 'nullable|string',
+
             'first_name' => 'nullable|string|max:100',
             'last_name' => 'nullable|string|max:100',
             'email' => 'nullable|email',
