@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
             ['email' => 'superadmin@everycity.org'],
             [
                 'name' => 'Super Admin',
-                'password' => Hash::make('password'),
+                'password' => Hash::make('9EvERY$cITY#(31'),
             ]
         );
         $superAdmin->assignRole('super_admin');
@@ -28,7 +28,7 @@ class UserSeeder extends Seeder
             ['email' => 'admin@everycity.org'],
             [
                 'name' => 'EveryCity Admin',
-                'password' => Hash::make('password'),
+                'password' => Hash::make('9EvERY$cITY#(31'),
             ]
         );
         $admin->assignRole('admin');
